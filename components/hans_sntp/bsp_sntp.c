@@ -186,17 +186,15 @@ void sntp_text(void)
      * a connection check to ensure status
      * is OK.
      */
-    ESP_ERROR_CHECK(sntp_helper_init("cn.pool.ntp.org")); 
+    ESP_ERROR_CHECK(sntp_helper_init(sntp_curl)); 
 
     while(1)
     {  
         printf("milliseconds: %llu\n",sntp_get_ms_since_epoch());
         printf("seconds: %llu \n", sntp_get_sec_since_epoch());
         
-        // 设置为eastern standard时间
-        // sntp_get_tz_timeinfo("EST5EDT,M3.2.0/2,M11.1.0", &timeinfo);
         // 设置为中国（上海）时间
-        sntp_get_tz_timeinfo("CST-8", &timeinfo);
+        sntp_get_tz_timeinfo("GMT+8", &timeinfo);
         
         strftime(strftime_buf, sizeof(strftime_buf), "%c", &timeinfo);
         ESP_LOGI(TAG, "The current date/time : %s", strftime_buf);

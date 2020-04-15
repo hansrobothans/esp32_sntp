@@ -25,6 +25,11 @@
 
 #define RETRY_ATTEMPTS 50 // Used to determine the number retry attempts for an ntp service
 #define TAG "SNTP"
+
+
+
+#define sntp_curl "cn.ntp.org.cn"	//中国提供商
+// #define sntp_curl "cn.pool.ntp.org"	//国外提供商
 typedef enum {
     EVENT_TYPE_SNTP_CONNECTED,
     EVENT_TYPE_SNTP_DISCONNECTED,

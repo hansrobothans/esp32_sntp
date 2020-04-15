@@ -1,0 +1,57 @@
+# put here your custom config value
+menu "WIFI Configuration"
+    menu "WIFI AP"
+    config BSP_ESP_AP_ENABLE
+        bool "WiFi AP ENABLE"
+        default y
+        help
+        是否使能ap模式
+    config BSP_ESP_AP_WIFI_SSID
+        string "WiFi AP SSID"
+        default "myssid"
+        help
+    	SSID (network name) for the example to connect to.
+
+    config BSP_ESP_AP_WIFI_PASSWORD
+        string "WiFi AP Password"
+        default "mypassword"
+        help
+    	WiFi password (WPA or WPA2) for the example to use.
+
+    config BSP_ESP_AP_MAX_STA_CONN
+        int "Wifi AP Max STA Connect"
+        default 3
+        help
+        wifi连接的最多设备数
+    endmenu
+
+    menu "WIFI  STA"
+    config BSP_ESP_STA_ENABLE
+        bool "WiFi STA ENABLE"
+        default y
+        help
+        是否使能sta模式
+    config BSP_ESP_SMART_ENABLE
+        bool "WiFi SMART ENABLE"
+        default n
+        help
+        是否使能smart连接
+    config BSP_ESP_STA_WIFI_SSID
+        string "WiFi STA SSID"
+        default "myssid"
+        help
+    	SSID (network name) for the example to be connected to.
+
+    config BSP_ESP_STA_WIFI_PASSWORD
+        string "WiFi STA Password"
+        default "mypassword"
+        help
+    	WiFi password (WPA or WPA2) for the example to be used.
+
+    config BSP_ESP_STA_MAXIMUM_RETRY
+        int "ESP_STA_MAXIMUM_RETRY"
+        default 5
+        help
+        WiFi连接失败最大重试次数.
+    endmenu
+endmenu
